@@ -1,0 +1,213 @@
+@import "../../../styles.scss";
+
+.navbar-container {
+    width: 100%;
+    background-color: $navbar-bg-color;
+
+    .navbar {
+        top: 0;
+        left: 0;
+        right: 0;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 15px 6%;
+
+        .navbar__toggler {
+            margin-right: 18px;
+            background-color: $navbar-bg-color;
+            border-radius: 10px;
+            width: 40px;
+            height: 30px;
+            cursor: pointer;
+            border: none;
+            display: none;
+
+            &.active {
+                span {
+                    background-color: transparent;
+
+                    &::before {
+                        transform: rotate(45deg);
+                    }
+
+                    &::after {
+                        transform: rotate(135deg);
+                    }
+                }
+            }
+
+            span {
+                height: 2px;
+                width: 20px;
+                background: $white;
+                display: block;
+                margin: auto;
+                position: relative;
+                transition: all 0.3s ease;
+
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $white;
+                    transition: all 0.3s ease;
+                }
+
+                &::before {
+                    transform: translateY(-6px);
+                }
+
+                &::after {
+                    transform: translateY(6px);
+                }
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .navbar-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: left;
+            flex-grow: 0.5;
+            color: $white;
+
+            .navbar-logo__text {
+                margin-left: 10px;
+                color: $white;
+                font-weight: 800;
+                font-size: 36px;
+
+                span {
+                    color: $logo-text-color;
+                }
+            }
+        }
+
+        .navbar-logout {
+            display: none;
+        }
+
+        nav {
+            flex-grow: 0.7;
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+
+                li {
+                    display: inline;
+                    position: relative;
+                    margin-left: 19px;
+
+                    a {
+                        color: $anchor-color;
+                        text-decoration: none;
+                        font-weight: 700;
+                        font-size: 18px;
+                        line-height: 20px;
+                        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+                        transition: all 0.5s ease;
+                    }
+
+                    .navbar__nav-active {
+                        position: absolute;
+                        background: #86EAAE;
+                        height: 10px;
+                        left: -1px;
+                        bottom: -33px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-container {
+        .navbar {
+            justify-content: space-around;
+            padding: 10px;
+
+            .navbar__toggler,
+            .navbar-logout {
+                display: block;
+                cursor: pointer;
+            }
+
+            .navbar-logo {
+                flex-grow: 0;
+                margin-left: 0;
+
+                .navbar-logo__image {
+                    img {
+                        width: 33px;
+                    }
+                }
+
+                .navbar-logo__text {
+                    font-size: 24px;
+                }
+            }
+
+            nav {
+                height: 0;
+                overflow: hidden;
+                visibility: hidden;
+                flex-basis: 100%;
+                transition: all 0.5s ease;
+
+                &.open {
+                    visibility: visible;
+                    height:100vh;
+                }
+
+                ul {
+                    flex-direction: column;
+                    padding: 12px 15px 0;
+                    margin: auto;
+                    border-top: 1px solid rgba(0, 0, 0, 0.25);
+
+                    li {
+                        margin-bottom: 30px;
+
+                        .navbar__nav-active {
+                            bottom: -15px;
+                            border-width: 2px;
+                        }
+
+                        &#navLogoutItem {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .navbar-container {
+        .navbar {
+            nav {
+                height: 0;
+
+                &.open {
+                    height: 100vh;
+                }
+            }
+        }
+    }
+}

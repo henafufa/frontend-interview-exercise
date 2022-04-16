@@ -1,0 +1,26 @@
+<div class="navbar-container">
+    <div class="navbar">
+        <button type="button" id="navToggler" class="navbar__toggler" (click)="navbarToggled()">
+            <span></span>
+        </button>
+        <div class="navbar-logo">
+            <div class="navbar-logo__image">
+                <img src="../../../assets/icons/Vector.png">
+            </div>
+            <h1 class="navbar-logo__text">LOGO<span>IPSUM</span></h1>
+        </div>
+        <div class="navbar-logout">
+            <img src="../../../assets/images/logout.png" />
+        </div>
+        <nav>
+            <ul>
+                <li class="nav__item"><a href="#">Dashboard</a></li>
+                <li class="nav__item"><a href="#">Account</a>
+                    <span class="navbar__nav-active is-shown"></span>
+                </li>
+                <li class="nav__item"><a href="#">Help</a></li>
+                <li class="nav__item" id="navLogoutItem"><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

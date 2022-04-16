@@ -1,0 +1,67 @@
+<div class="profile">
+  <div class="profile__container">
+    <div class="profile__container-img">
+      <img src="../../../assets/images/cameraman.png">
+    </div>
+    <div class="profile__container-form">
+      <h1>My Account</h1>
+      <form *ngFor="let data of profile_data">
+        <div class="profile__form-group full-width active">
+          <input type="text" [value]="data.name" required />
+          <span class="form-group__label">Name</span>
+        </div>
+        <div class="profile__form-group">
+          <input type="tel" [value]="data.mobile" required />
+          <span class="form-group__label">Mobile</span>
+        </div>
+        <div class="profile__form-group active">
+          <input type="email" [value]="data.email" required>
+          <span class="form-group__label">Email</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="profile__configuration-form">
+    <p class="config-title">Select Configuration</p>
+    <form>
+      <div class="profile__form-group configuration">
+        <div *ngFor="let data of profile_data">
+          <div *ngFor="let config of configuration">
+            <div class="configuration__item" [ngClass]="{'active': config.checked}">
+              <input id="{{config.id}}" class="configuration__radio" name="radio-group" type="radio"
+                [checked]="config.checked">
+              <label for="{{config.id}}" class="configuration__label">{{ config.configuration_type }}</label>
+              <p>{{ config.description }}</p>
+            </div>
+            <div class="configuration__item" [ngClass]="{'active': config.checked}" *ngIf="config.options">
+              <label for="{{config.id}}" class="configuration__label">{{ config.options.name }}</label>
+              <p>{{ config.options.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="profile__form-group actions l-flex">
+        <div class="profile__button profile__button--update" id="profileSubmit" (click)=" updateConfiguration()">
+          Update Configuration
+        </div>
+        <div class="profile__button profile__button--cancel">
+          Cancel
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="update__configuration-modal" id="profileModal">
+    <div class="update__configuration-modal-content l-flex">
+      <div class="modal__icon">
+        <img src="../../../assets/images/clap.png" />
+      </div>
+      <div class="modal__header">
+        <h1>Great job!</h1>
+      </div>
+      <div class="modal__text">
+        <p>Your configuration have been updated successfully.</p>
+      </div>
+    </div>
+  </div>
+</div>

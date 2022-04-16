@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+$navbar-bg-color: #5c524d;
+$logo-text-color:#fa732f;
+$white: #fff;
+$light-grey: #747171;
+$anchor-color: rgba(255, 255, 255, 0.75);
+$color-black: #212121;
+$color-orange: #fc732f;
+$color-accent: #86eaae;
+$configuration-bg: #fafafa;
+$border-color: #d5d5d5;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Almarai, sans-serif, Arial;
+}
+
+h1,
+h2 {
+    color: $color-black;
+}
+
+p {
+    font-family: Almarai;
+    font-size: 16px;
+    font-weight: normal;
+    color: $color-black;
+}
+
+.l-flex {
+    display: flex;
+}
+
