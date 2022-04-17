@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { PROFILE, CONFIGURATION } from 'src/app/models/profile';
-import { ProfileService } from 'src/app/services/profile.ts.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-profile',
